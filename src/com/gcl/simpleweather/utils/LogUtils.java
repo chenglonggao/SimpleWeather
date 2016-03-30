@@ -37,5 +37,6 @@ public class LogUtils {
 			Log.e(tag, msg);
 		}
 	}
+	System.out.println("hello world");
 
 }
