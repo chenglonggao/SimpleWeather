@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.simpleweather"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
+    
+    
+        <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.example.simpleweather" />
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.gcl.simpleweather.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- 注册 AppWidgetProvider -->
+        <receiver android:name="com.gcl.simpleweather.MyAppWidget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidgetinfo" />
+        </receiver>
+        <!-- 注册服务service -->
+        <service android:name="com.gcl.simpleweather.UpdateWeatherService" >
+        </service>
+         <uses-library android:name="android.test.runner" />
+    </application>
+
+</manifest>
